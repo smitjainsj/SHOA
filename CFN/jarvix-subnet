@@ -1,0 +1,65 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+        "AZaPublic": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": "vpc-4debc628",
+                "CidrBlock": "10.0.1.0/24",
+                "MapPublicIpOnLaunch": "true",
+                "AvailabilityZone": "us-west-2a",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "JarvisPubSubnetAZa"
+                    }
+                ]
+            }
+        },
+        "AZaPrivate": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": "vpc-4debc628",
+                "CidrBlock": "10.0.2.0/24",
+                "MapPublicIpOnLaunch": "true",
+                "AvailabilityZone": "us-west-2a",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "JarvisPrivateSubnetAZa"
+                    }
+                ]
+            }
+        },
+        "AZbprivate": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": "vpc-4debc628",
+                "CidrBlock": "10.0.4.0/24",
+                "MapPublicIpOnLaunch": "false",
+                "AvailabilityZone": "us-west-2b",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "JarvisPrivateSubnetAZb"
+                    }
+                ]
+            }
+        },
+        "AZbPublic": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "VpcId": "vpc-4debc628",
+                "CidrBlock": "10.0.3.0/24",
+                "MapPublicIpOnLaunch": "true",
+                "AvailabilityZone": "us-west-2b",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "JarvisPubSubnetAZb"
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+        "validCIDR": {
+            "Description": "CIDR must be in proper range",
+            "Type": "String",
+            "MinLength": "9",
+            "MaxLength": "18",
+            "Default": "0.0.0.0/0",
+            "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+            "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
+        },
+        "DNSHostname": {
+            "Default": "false",
+            "Description": "provide a dns hostname",
+            "Type": "String",
+            "AllowedValues": [
+                "true",
+                "false"
+            ],
+            "ConstraintDescription": "must be only true or false."
+        },
+        "Tenancy": {
+            "Default": "default",
+            "Description": "provide a instance tenancy",
+            "Type": "String",
+            "AllowedValues": [
+                "default",
+                "dedicated"
+            ],
+            "ConstraintDescription": "must be only default or dedicated."
+        }
+    },
+    "Resources": {
+        "Jarvis": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "EnableDnsSupport": {
+                    "Ref": "DNSHostname"
+                },
+                "CidrBlock": {
+                    "Ref": "validCIDR"
+                },
+                "InstanceTenancy": {
+                    "Ref": "Tenancy"
+                },
+                "Tags": [
+                    {
+                        "Key": "foo",
+                        "Value": "bar"
+                    }
+                ]
+            }
+        }
+    }
+}
