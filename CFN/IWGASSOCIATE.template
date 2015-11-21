@@ -1,0 +1,12 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+        "myInternetAssoGateway": {
+            "Type": "AWS::EC2::VPCGatewayAttachment",
+            "Properties": {
+                "InternetGatewayId": "igw-9bdeb8fe",
+                "VpcId": "vpc-4debc628"
+            }
+        }
+    }
+}
