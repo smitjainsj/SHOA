@@ -1,0 +1,38 @@
+{"AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+        "NatInstanceAZa": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "AvailabilityZone": "us-west-2a",
+                "ImageId": "ami-290f4119",
+                "InstanceType": "t2.micro",
+                "KeyName": "jarvis-env",
+                "SecurityGroupIds": ["sg-c33b64a7"],
+                "SubnetId": "subnet-3ec09749",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Nat-a"
+                    }
+                ]
+            }
+        },
+        "NatInstanceAZb": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "AvailabilityZone": "us-west-2b",
+                "ImageId": "ami-290f4119",
+                "InstanceType": "t2.micro",
+                "KeyName": "jarvis-env",
+                "SecurityGroupIds": ["sg-c23b64a6"],
+                "SubnetId": "subnet-a883b2cd",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Nat-a"
+                    }
+                ]
+            }
+        }
+    }
+}
