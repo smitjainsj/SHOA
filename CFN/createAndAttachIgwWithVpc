@@ -1,0 +1,33 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+        "VpcId": {
+            "Type": "AWS::EC2::VPC::Id",
+            "Description": "VpcId of your existing Virtual Private Cloud (VPC)"
+        }
+    },
+    "Resources": {
+        "myInternetGateway": {
+            "Type": "AWS::EC2::InternetGateway",
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "JarvisInternetGateway"
+                    }
+                ]
+            }
+        },
+        "myInternetAssoGateway": {
+            "Type": "AWS::EC2::VPCGatewayAttachment",
+            "Properties": {
+                "InternetGatewayId": {
+                    "Ref": "myInternetGateway"
+                },
+                "VpcId": {
+                    "Ref": "VpcId"
+                }
+            }
+        }
+    }
+}
