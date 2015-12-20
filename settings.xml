@@ -1,0 +1,16 @@
+<settings>
+<servers>
+
+    <server>
+
+<id>CI-Snapshots</id>
+
+      	<username>admin</username>
+
+      	<password>admin</password>
+
+    </server>
+
+  </servers>
+
+</settings>
